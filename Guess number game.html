@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+    <link href='https://fonts.googleapis.com/css?family=Coiny' rel='stylesheet'>
+</head>
+<style>
+    #d1{
+        height: 800px;
+        width: 100%;
+        background-image:url("numbers.jpg");
+        background-size: cover;
+    }
+    #h2{
+       
+        color: rgb(200, 137, 198);
+        font-family: 'Coiny';font-size: 50px;
+
+}
+#btn{
+    background-color: plum;
+    border:solid 2px rgb(198, 136, 198);
+    height: 36px;
+    width: 10%;
+    font-family: 'Coiny';font-size: 17px;
+    color: rgb(66, 62, 62);
+
+}
+#num{
+    width:20%;
+    height:30px ;
+    font-family: 'Coiny';font-size: 19px;
+    color: rgb(66, 62, 62);
+
+}
+#p1{
+    font-family: 'Coiny';font-size: 17px;
+    color:rgb(114, 74, 114);
+
+}
+#result{
+    color:rgb(114, 74, 114);
+    font-family: 'Coiny';font-size: 17px;
+
+
+}
+
+    
+    
+</style>
+
+
+<body>
+    <div align="center" id="d1">
+        <div class="row" style="height: 20%;">
+        </div>
+        
+          <h2 id="h2">GUESS NUMBER GAME</h2>
+          <p id="p1">We have selected a random number between 1 - 10. <br>
+            See if you can guess it.</p>
+            
+          <input type="text" placeholder="Guess a number" id="num">
+          <button onclick="game()" id="btn"> SUBMIT</button>
+         <br><br><p id="result"></p>
+
+    </div>
+
+<script>
+
+
+var a=Math.floor(Math.random()*10);
+// counting the number of guesses
+    count=0;
+
+
+
+    function game(){
+        count++;
+if(count<=5)
+{
+
+
+        var number=parseInt(document.getElementById("num").value);
+    if(number==a)
+        {
+            document.getElementById("result").innerHTML=`Congratulations ! You guessed the correct number in ${guess} guess...!`
+
+        }
+        else if(number<a)
+        {
+         
+            document.getElementById("result").innerHTML="Oops sorry ! try a greater number...!"
+        }
+        else
+        {
+                        document.getElementById("result" ).innerHTML="Oops sorry ! try a smaller number...!"
+        }
+}
+else
+{
+    document.getElementById("result").innerHTML= "Game Over...!"
+
+}
+
+}
+</script>
+
+</body>
+</html>
